@@ -1,0 +1,22 @@
+{
+  "name": "redkollegiya",
+  "displayName": "Редколлегия",
+  "version": "1.0.0",
+  "description": "Дирижёр редактуры русского текста: вся семья редакторов за одним столом, правки вносит скрипт по дословным цитатам.",
+  "author": {
+    "name": "Rodion Scryabin (beaverbeard)",
+    "url": "https://github.com/beaverbeard"
+  },
+  "homepage": "https://github.com/beaverbeard/redkollegiya",
+  "repository": "https://github.com/beaverbeard/redkollegiya",
+  "license": "MIT",
+  "keywords": [
+    "editing",
+    "russian",
+    "orchestration",
+    "writing"
+  ],
+  "skills": [
+    "./.claude/skills/"
+  ]
+}
