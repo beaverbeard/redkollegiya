@@ -1,8 +1,8 @@
 {
   "name": "redkollegiya",
   "displayName": "Редколлегия",
-  "version": "1.0.0",
-  "description": "Дирижёр редактуры русского текста: вся семья редакторов за одним столом, правки вносит скрипт по дословным цитатам.",
+  "version": "1.0.1",
+  "description": "Editorial conductor for Russian-language text: runs the whole family of editors in one pass, with edits applied by a script from verbatim quotes.",
   "author": {
     "name": "Rodion Scryabin (beaverbeard)",
     "url": "https://github.com/beaverbeard"

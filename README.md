@@ -10,6 +10,9 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-da7756.svg)](https://docs.claude.com/en/docs/claude-code/overview)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 
+**In English.** Redkollegia (“editorial board”) is a conductor for editing **Russian-language text**. One entry point decides what the text needs and runs the family of editors in order — meaning (Chukovsky), facts (Agranovsky), AI slop (Slopotron), norms (Rozental), typography (Milchin) — as Claude subagents, then applies all findings at once with the bundled script `apply.py` (Python standard library, local only), which edits strictly by verbatim quotes. It works best with the sibling plugins installed; network access happens only through Agranovsky's web search.
+
+
 Даёте текст или бриф — Claude сам понимает, что с ним делать. Готовый пост прогонит по конвейеру
 вычитки (смысл → факты → AI-маркеры → норма → типографика) и вернёт чистый текст с единым отчётом.
 Если на входе только бриф или расшифровка, сначала закажет черновик у генератора и проверит голос,
