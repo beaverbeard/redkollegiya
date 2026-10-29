@@ -12,10 +12,14 @@ Detect-этапы (Аграновский, Слопотрон) текст не �
   1. Раскладывает находки по `action`: `applied` — уже внесено переписчиком (транзит);
      `suggest` — автору; `flag` — замены нет, автору (blocker зон facts/meaning — активный);
      `apply`/`redirect` с `edit` — применимые; неизвестный `action` — автору, не вносится.
+     Синонимы replace/fix/edit/correct (регистр не важен) с непустым `edit` приводятся
+     к `apply` с пометкой `note` в отчёте.
   2. Дедуп: одна `quote` + один `edit` от двух этапов → одна правка; одна `quote` + разные
      `edit` → конфликт, обе автору.
   3. Якорение: `quote` ищется в тексте дословно (с допуском на разницу пробелов). Не найдена
      или встречается больше одного раза → автору (скрипт не угадывает, какое вхождение).
+  3а. Защищённые цитаты (--protected): правка, чей span перекрывается с защищённой строкой,
+     не вносится — автору с причиной «защищённая цитата».
   4. Перекрытие span — геометрически, по позициям в исходном тексте: пересекающиеся правки
      отдаются автору обе.
   5. Бюджет роста: суммарный прирост знаков от применённых правок ≤ ratio × длина текста
@@ -23,13 +27,16 @@ Detect-этапы (Аграновский, Слопотрон) текст не �
      с самой «раздувающей». Исправление blocker зон facts/meaning не вытесняется никогда —
      это исправление ошибки, а не стиль. Кластер Слопотрона вытесняется наравне с fix.
   6. Применение с конца текста к началу (позиции не сдвигаются).
+  7. Раздел автора: находки, чьи цитаты вложены одна в другую или перекрываются в тексте
+     ≥ 60% (от более короткой), сливаются в одну позицию со списком этапов `stages`
+     и остальными формулировками в `merged`. Внесённые правки не сливаются.
 
 Severity при эскалации: blocker зон facts/meaning, не попавший в текст, остаётся активным;
 остальное уходит автору как author_choice (исходная severity — в поле orig_severity).
 
 Использование:
     apply.py --text v1.md --findings findings.json --out v3.md [--report r.json]
-             [--max-growth 0.2]
+             [--max-growth 0.2] [--protected protected.json]
     apply.py --length-check prev.md next.md [--max-loss 0.10] [--max-growth 0.2]
     apply.py --selftest
 
@@ -37,6 +44,7 @@ findings.json — список находок или {"findings": [...]}; нах
     {stage, zone, severity: blocker|fix|author_choice, quote,
      action: applied|apply|suggest|redirect|flag, edit, source?}
     edit — дословный текст, которым заменить quote ("" = удалить; null = замены нет).
+protected.json — {"protected_quotes": ["дословная строка", ...]} (якоря зерна, голос автора).
 
 Вывод в stdout — краткая сводка (счётчики). Полный отчёт — в --report (JSON).
 --length-check печатает и объём правки (edit_volume): долю изменённых слов (1 − ratio difflib
@@ -60,6 +68,11 @@ DEFAULT_MAX_LOSS = 0.10
 
 APPLICABLE_SEVERITIES = {"fix", "blocker"}
 ACTIONS = {"applied", "apply", "suggest", "redirect", "flag"}
+# Синонимы apply, которые этапы возвращают вместо контрактного слова (прогон 03: Аграновский
+# прислал «replace», и три проверенные правки фактов ушли автору). Только с непустым edit.
+APPLY_ALIASES = {"replace", "fix", "edit", "correct"}
+# Порог слияния позиций в разделе автора: доля перекрытия от более короткой цитаты.
+AUTHOR_MERGE_OVERLAP = 0.6
 # Зоны, где blocker без внесённой правки запрещает публикацию: ложный факт и смысловой дефект
 # (внутреннее противоречие, логическая дыра). Стилистика и норма без правки — выбор автора.
 HARD_ZONES = {"facts", "meaning"}
@@ -105,6 +118,10 @@ def _norm_findings(raw):
         g["_id"] = n
         g["severity"] = str(g.get("severity") or "").strip()
         g["action"] = str(g.get("action") or "").strip()
+        edit = g.get("edit")
+        if g["action"].lower() in APPLY_ALIASES and isinstance(edit, str) and edit.strip():
+            g["note"] = f"action нормализован: {g['action']} → apply"
+            g["action"] = "apply"
         out.append(g)
     return out
 
@@ -122,8 +139,69 @@ def _hard(f):
     return f["severity"] == "blocker" and str(f.get("zone") or "") in HARD_ZONES
 
 
-def apply_findings(text, findings, max_growth=DEFAULT_MAX_GROWTH):
-    """Single-apply. Возвращает (new_text, report)."""
+def _span_overlap(a, b):
+    return max(0, min(a[1], b[1]) - max(a[0], b[0]))
+
+
+def _merge_author(text, to_author):
+    """Слить позиции раздела автора, чьи цитаты вложены одна в другую или перекрываются в тексте
+    ≥ AUTHOR_MERGE_OVERLAP от более короткой. Голова группы — самая длинная цитата; остальные
+    формулировки сохраняются в `merged` (точный дубль цитаты и причины — только этапом в stages)."""
+    quotes = [str(r.get("quote") or "").strip() for r in to_author]
+    spans = []
+    for q in quotes:
+        found = locate(text, q)
+        spans.append(found[0] if len(found) == 1 else None)
+
+    def linked(i, j):
+        qi, qj = quotes[i], quotes[j]
+        if not qi or not qj:
+            return False
+        if qi in qj or qj in qi:
+            return True
+        si, sj = spans[i], spans[j]
+        if si is None or sj is None:
+            return False
+        shorter = min(si[1] - si[0], sj[1] - sj[0])
+        return shorter > 0 and _span_overlap(si, sj) / shorter >= AUTHOR_MERGE_OVERLAP
+
+    parent = list(range(len(to_author)))
+
+    def root(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for i in range(len(to_author)):
+        for j in range(i + 1, len(to_author)):
+            if linked(i, j):
+                parent[root(j)] = root(i)
+    groups = {}
+    for i in range(len(to_author)):
+        groups.setdefault(root(i), []).append(i)
+
+    out = []
+    for members in sorted(groups.values(), key=lambda m: m[0]):
+        head_i = max(members, key=lambda i: (len(quotes[i]), -i))
+        head = to_author[head_i]
+        head["stages"] = sorted({str(to_author[i].get("stage", "?")) for i in members})
+        merged = []
+        for i in members:
+            rec = to_author[i]
+            if i == head_i or (quotes[i] == quotes[head_i] and rec["reason"] == head["reason"]):
+                continue
+            merged.append({k: rec.get(k) for k in ("stage", "quote", "edit", "severity", "reason")})
+        if merged:
+            head["merged"] = merged
+        out.append(head)
+    return out
+
+
+def apply_findings(text, findings, max_growth=DEFAULT_MAX_GROWTH, protected=None):
+    """Single-apply. Возвращает (new_text, report).
+
+    protected — список дословных строк, которые правки не трогают (см. --protected)."""
     findings = _norm_findings(findings)
     applied, to_author, active_blockers, passthrough = [], [], [], []
 
@@ -199,6 +277,24 @@ def apply_findings(text, findings, max_growth=DEFAULT_MAX_GROWTH):
             f["_growth"] = len(f["edit"]) - (spans[0][1] - spans[0][0])
             anchored.append(f)
 
+    # 3а. защищённые цитаты: правка, задевающая защищённую строку, не вносится
+    protected = [str(q).strip() for q in (protected or []) if str(q or "").strip()]
+    protected_spans, protected_missing = [], []
+    for q in protected:
+        found = locate(text, q)
+        protected_spans.extend(found)
+        if not found:
+            protected_missing.append(q)
+    if protected_spans:
+        kept = []
+        for f in anchored:
+            s, e = f["_span"]
+            if any(_span_overlap((s, e), ps) > 0 for ps in protected_spans):
+                escalate(f, "защищённая цитата — правка её задевает")
+            else:
+                kept.append(f)
+        anchored = kept
+
     # 4а. вложенная правка: точечная находка внутри абзаца-замены (кластер Слопотрона ⊃ факт
     # Аграновского). Если её quote ровно один раз есть в edit внешней правки — применить внутри.
     nested_applied = []
@@ -273,17 +369,8 @@ def apply_findings(text, findings, max_growth=DEFAULT_MAX_GROWTH):
             escalate(inner, "внешняя правка абзаца не применена: " + "бюджет роста/перекрытие")
     applied.sort(key=lambda r: r["span"][0])
 
-    # одна и та же цитата от двух этапов в разделе автора — одна строка с атрибуцией обоих
-    merged = {}
-    for rec in to_author:
-        key = (str(rec.get("quote") or "").strip(), rec["reason"])
-        if key in merged:
-            prev = merged[key]
-            prev["stages"] = sorted(set(prev["stages"]) | {str(rec.get("stage", "?"))})
-        else:
-            rec["stages"] = [str(rec.get("stage", "?"))]
-            merged[key] = rec
-    to_author = list(merged.values())
+    # одна фраза от нескольких этапов в разделе автора — одна позиция с атрибуцией всех
+    to_author = _merge_author(text, to_author)
 
     report = {
         "len_before": len(text),
@@ -295,6 +382,9 @@ def apply_findings(text, findings, max_growth=DEFAULT_MAX_GROWTH):
         "active_blockers": active_blockers,
         "already_applied": passthrough,
     }
+    if protected:
+        report["protected_quotes"] = len(protected)
+        report["protected_not_found"] = protected_missing
     return new_text, report
 
 
@@ -520,6 +610,70 @@ def selftest():
                                   quote="Выручка упала вдвое.", edit=None)])
     check("style-flag-not-active", not r["active_blockers"] and len(r["to_author"]) == 1)
 
+    # 16б. E5: синонимы apply с непустым edit приводятся к apply, с пометкой
+    t = "Главное подметил другой коллега. Клиент цепляется за частности."
+    out, r = apply_findings(t, [
+        F(stage="agranovsky", zone="facts", severity="fix", action="replace",
+          quote="другой коллега", edit="другой участник команды"),
+        F(stage="agranovsky", zone="facts", severity="fix", action="Correct",
+          quote="Клиент цепляется", edit="Одна из представителей клиента цепляется"),
+    ], max_growth=1.0)
+    check("alias-apply", out == "Главное подметил другой участник команды. "
+          "Одна из представителей клиента цепляется за частности." and len(r["applied"]) == 2
+          and r["applied"][0]["note"] == "action нормализован: replace → apply"
+          and r["applied"][1]["note"] == "action нормализован: Correct → apply")
+    out, r = apply_findings(t, [
+        F(severity="fix", action="replace", quote="другой коллега", edit=""),
+        F(severity="fix", action="rewrite", quote="Клиент", edit="Заказчик"),
+    ])
+    check("alias-needs-edit", out == t and len(r["to_author"]) == 2
+          and all("неизвестный action" in a["reason"] for a in r["to_author"]))
+
+    # 16в. E6: позиции автора с вложенными / перекрытыми цитатами сливаются, правки — нет
+    t = "Всё решила одна фраза. Клиент услышал своё слово и согласился. Конец."
+    out, r = apply_findings(t, [
+        F(stage="chukovsky", severity="author_choice", action="suggest",
+          quote="Всё решила одна фраза.", edit=None),
+        F(stage="agranovsky", zone="facts", severity="fix", action="flag",
+          quote="Всё решила одна фраза", edit=None),
+        F(severity="author_choice", action="suggest", quote="решила одна фраза. Клиент", edit=None),
+        F(severity="author_choice", action="suggest", quote="Конец.", edit=None),
+    ])
+    pos = [a for a in r["to_author"] if "фраза" in a["quote"]]
+    check("author-merge-overlap", len(r["to_author"]) == 2 and len(pos) == 1
+          and pos[0]["stages"] == ["agranovsky", "chukovsky", "slopotron"]
+          and len(pos[0]["merged"]) == 2)
+    _, r = apply_findings("Раз два три четыре пять шесть семь.", [
+        F(severity="author_choice", action="suggest", quote="Раз два три четыре", edit=None),
+        F(stage="chukovsky", severity="author_choice", action="suggest", quote="четыре пять шесть семь.",
+          edit=None),
+    ])
+    check("author-merge-low-overlap", len(r["to_author"]) == 2)
+    out, r = apply_findings("Рынок вырос на 40% за год.", [
+        F(severity="fix", quote="Рынок вырос", edit="Рынок прибавил"),
+        F(stage="agranovsky", severity="author_choice", action="suggest", quote="Рынок вырос на 40%",
+          edit=None),
+    ])
+    check("author-merge-skips-applied", out == "Рынок прибавил на 40% за год."
+          and len(r["applied"]) == 1 and len(r["to_author"]) == 1)
+
+    # 16г. защищённые цитаты: правка, задевающая якорь, не вносится; соседняя — вносится
+    t = "Это я к чему. Ага? Решение принимают по слову. В современном мире всё сложно."
+    out, r = apply_findings(t, [
+        F(severity="fix", quote="Это я к чему. Ага?", edit=""),
+        F(severity="fix", quote="В современном мире всё", edit="Всё"),
+        F(severity="blocker", action="redirect", quote="Решение принимают по слову.",
+          edit="Решения принимают по словам."),
+    ], protected=["Ага?", "принимают по слову"])
+    check("protected-blocks", out == "Это я к чему. Ага? Решение принимают по слову. Всё сложно."
+          and len(r["applied"]) == 1 and len(r["to_author"]) == 2
+          and all("защищённая цитата" in a["reason"] for a in r["to_author"]))
+    out, r = apply_findings("Цифра 40% тут.", [
+        F(stage="agranovsky", zone="facts", severity="blocker", quote="40%", edit="12%"),
+    ], protected=["Цифра 40%", "нет в тексте"])
+    check("protected-fact-active", out == "Цифра 40% тут." and len(r["active_blockers"]) == 1
+          and r["protected_not_found"] == ["нет в тексте"])
+
     # 16. коридор объёма
     check("len-ok", length_check("a" * 100, "a" * 95)[0] == "ok")
     check("len-loss", length_check("a" * 100, "a" * 85)[0] == "loss")
@@ -560,6 +714,7 @@ def main(argv=None):
     p.add_argument("--out", help="куда записать text_v3")
     p.add_argument("--report", help="куда записать полный JSON-отчёт")
     p.add_argument("--max-growth", type=float, default=DEFAULT_MAX_GROWTH)
+    p.add_argument("--protected", help='JSON {"protected_quotes": [...]} — строки, которые правки не трогают')
     p.add_argument("--max-loss", type=float, default=DEFAULT_MAX_LOSS)
     p.add_argument("--length-check", nargs=2, metavar=("PREV", "NEXT"))
     p.add_argument("--selftest", action="store_true")
@@ -581,7 +736,13 @@ def main(argv=None):
     try:
         text = _read(a.text)
         findings = json.loads(_read(a.findings))
-        new_text, report = apply_findings(text, findings, a.max_growth)
+        protected = None
+        if a.protected:
+            prot = json.loads(_read(a.protected))
+            protected = prot.get("protected_quotes") if isinstance(prot, dict) else None
+            if not isinstance(protected, list):
+                raise ValueError("protected: ожидается {\"protected_quotes\": [...]}")
+        new_text, report = apply_findings(text, findings, a.max_growth, protected)
     except (OSError, ValueError) as e:
         print(f"ошибка: {e}", file=sys.stderr)
         return 1
@@ -596,6 +757,12 @@ def main(argv=None):
           f"active_blockers: {len(report['active_blockers'])} | "
           f"growth: +{report['growth_used']}/{report['growth_budget']} | "
           f"len {report['len_before']}→{report['len_after']}")
+    notes = sum(1 for k in ("applied", "to_author", "active_blockers")
+                for r in report[k] if r.get("note"))
+    if notes:
+        print(f"action нормализован: {notes}")
+    if report.get("protected_not_found"):
+        print(f"защищённые цитаты не найдены в тексте: {len(report['protected_not_found'])}")
     return 0
 
 
