@@ -39,12 +39,18 @@ findings.json — список находок или {"findings": [...]}; нах
     edit — дословный текст, которым заменить quote ("" = удалить; null = замены нет).
 
 Вывод в stdout — краткая сводка (счётчики). Полный отчёт — в --report (JSON).
+--length-check печатает и объём правки (edit_volume): долю изменённых слов (1 − ratio difflib
+по словам, симметрично для вставок и удалений) и долю затронутых предложений исходника (diff по словам
+и знакам препинания: поправленная запятая предложение затрагивает, но доли слов не меняет).
+Это ориентир для отчёта, на код выхода не влияет; пороги по жанру подбираются на golden.
+
 Exit: 0 — ок; 1 — ошибка входа; 2 — (--length-check) объём вне коридора.
 
 Zero-dep, stdlib only.
 """
 
 import argparse
+import difflib
 import json
 import re
 import sys
@@ -305,6 +311,59 @@ def length_check(prev, nxt, max_loss=DEFAULT_MAX_LOSS, max_growth=DEFAULT_MAX_GR
     return "ok", ratio
 
 
+_TOKEN_RE = re.compile(r"\w+(?:[-'’]\w+)*|[^\w\s]")
+_SENT_RE = re.compile(r"[^\n]+?(?:[.!?…]+[»\"’)]*(?=\s|$)|$)", re.M)
+
+
+def _sentence_spans(text):
+    return [(m.start(), m.end()) for m in _SENT_RE.finditer(text) if m.group().strip()]
+
+
+def edit_volume(prev, nxt):
+    """Объём правки prev→nxt: доля изменённых слов и доля затронутых предложений prev.
+
+    Слова: 1 − ratio SequenceMatcher по словам (без знаков препинания). Предложения: diff по словам
+    и знакам препинания; предложение prev затронуто, если в него попала замена/удаление или вставка.
+    """
+    words_a = [m.group() for m in _TOKEN_RE.finditer(prev) if m.group()[0].isalnum() or m.group()[0] == "_"]
+    words_b = [m.group() for m in _TOKEN_RE.finditer(nxt) if m.group()[0].isalnum() or m.group()[0] == "_"]
+    sm = difflib.SequenceMatcher(None, words_a, words_b, autojunk=False)
+    word_share = 1 - sm.ratio() if (words_a or words_b) else 0.0
+
+    toks_a = list(_TOKEN_RE.finditer(prev))
+    toks_b = [m.group() for m in _TOKEN_RE.finditer(nxt)]
+    spans = _sentence_spans(prev)
+    sent_of = []  # индекс предложения для каждого токена prev
+    k = 0
+    for t in toks_a:
+        while k < len(spans) - 1 and t.start() >= spans[k][1]:
+            k += 1
+        sent_of.append(k)
+    touched = set()
+    sm2 = difflib.SequenceMatcher(None, [t.group() for t in toks_a], toks_b, autojunk=False)
+    for op, i1, i2, _j1, _j2 in sm2.get_opcodes():
+        if op == "equal" or not sent_of:
+            continue
+        if i1 < i2:
+            touched.update(sent_of[i1:i2])
+        else:  # чистая вставка — к предложению соседнего токена prev
+            touched.add(sent_of[min(i1, len(sent_of)) - 1] if i1 > 0 else sent_of[0])
+    total = len(spans)
+    return {
+        "word_share": round(word_share, 4),
+        "words_before": len(words_a),
+        "words_after": len(words_b),
+        "sentences_touched": len(touched),
+        "sentences_total": total,
+        "sentence_share": round(len(touched) / total, 4) if total else 0.0,
+    }
+
+
+def format_edit_volume(v):
+    return (f"edit-volume: слова {v['word_share']:.1%} ({v['words_before']}→{v['words_after']}); "
+            f"предложения {v['sentences_touched']}/{v['sentences_total']} ({v['sentence_share']:.0%})")
+
+
 # ---------------------------------------------------------------- selftest
 
 def selftest():
@@ -466,6 +525,19 @@ def selftest():
     check("len-loss", length_check("a" * 100, "a" * 85)[0] == "loss")
     check("len-growth", length_check("a" * 100, "a" * 125)[0] == "growth")
 
+    # 17. объём правки
+    src = "Мы провели анализ рынка. Выручка выросла вдвое! Это хорошо."
+    v = edit_volume(src, src)
+    check("vol-zero", v["word_share"] == 0 and v["sentences_touched"] == 0 and v["sentences_total"] == 3)
+    v = edit_volume(src, "Мы изучили рынок. Выручка выросла вдвое! Это хорошо.")
+    check("vol-one-sentence", v["sentences_touched"] == 1 and 0.1 < v["word_share"] < 0.4)
+    v = edit_volume("Он сказал что придёт. Всё.", "Он сказал, что придёт. Всё.")
+    check("vol-comma-only", v["word_share"] == 0 and v["sentences_touched"] == 1)
+    v = edit_volume(src, "Совсем другой текст про погоду в Москве.")
+    check("vol-rewrite", v["word_share"] > 0.9 and v["sentence_share"] == 1)
+    v = edit_volume("Раз. Два.", "Раз. Два. Три.")
+    check("vol-append", v["sentences_touched"] == 1 and v["word_share"] > 0)
+
     total = len(seen)
     if fails:
         print(f"selftest: FAIL {total - len(fails)}/{total} — " + ", ".join(fails))
@@ -501,6 +573,7 @@ def main(argv=None):
                                      a.max_loss, a.max_growth)
         shown = "n/a" if ratio is None else f"{ratio:+.1%}"
         print(f"length-check: {status} ({shown}; коридор −{a.max_loss:.0%}…+{a.max_growth:.0%})")
+        print(format_edit_volume(edit_volume(_read(a.length_check[0]), _read(a.length_check[1]))))
         return 0 if status == "ok" else 2
 
     if not (a.text and a.findings and a.out):
