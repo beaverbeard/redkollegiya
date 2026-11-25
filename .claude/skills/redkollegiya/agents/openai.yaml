@@ -1,0 +1,6 @@
+interface:
+  display_name: "Редколлегия"
+  short_description: "Пишет и редактирует тексты"
+  icon_small: "./assets/brand/icon-redkollegiya.svg"
+  icon_large: "./assets/brand/icon-redkollegiya.png"
+  brand_color: "#EE402C"

@@ -1,13 +1,13 @@
 {
   "name": "redkollegiya",
   "displayName": "Редколлегия",
-  "version": "1.1.0",
-  "description": "Editorial conductor for Russian: preserves the selected voice across generation and proofreading, with edits applied by a script from verbatim quotes.",
+  "version": "1.1.1",
+  "description": "Для русского языка · For Russian. Пишет и редактирует тексты. Помогает пройти путь от первого черновика до проверки фактов и финальной вычитки. / Writes and edits texts, from the first draft through fact-checking and final proofreading.",
   "author": {
     "name": "Rodion Scryabin (beaverbeard)",
     "url": "https://github.com/beaverbeard"
   },
-  "homepage": "https://github.com/beaverbeard/redkollegiya",
+  "homepage": "https://redaktozavr.ru/rAIdactor?utm_source=skills",
   "repository": "https://github.com/beaverbeard/redkollegiya",
   "license": "MIT",
   "keywords": [
@@ -18,5 +18,7 @@
   ],
   "skills": [
     "./.claude/skills/"
-  ]
+  ],
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/beaverbeard/redkollegiya"
 }
