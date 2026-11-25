@@ -1,0 +1,559 @@
+{
+  "kind": "unmodified_public_skill_sources_not_a_validated_installer",
+  "personal_voice_corpora": false,
+  "files": [
+    {
+      "skill": "redkollegiya",
+      "package_path": "redkollegiya/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/redkollegiya/.claude/skills/redkollegiya/SKILL.md",
+      "public_commit": "fca4b440fe9a6aee712bd6a14a61a951b4a2d329",
+      "public_file_url": "https://github.com/beaverbeard/redkollegiya/blob/fca4b440fe9a6aee712bd6a14a61a951b4a2d329/.claude/skills/redkollegiya/SKILL.md",
+      "safe_snapshot_sha256": "3ab34b3b65a4b489db4882a2807773d75424a40d75ada08c046928766817b948",
+      "sha256": "3ab34b3b65a4b489db4882a2807773d75424a40d75ada08c046928766817b948"
+    },
+    {
+      "skill": "redkollegiya",
+      "package_path": "redkollegiya/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/redkollegiya/.claude/skills/redkollegiya/agents/openai.yaml",
+      "public_commit": "fca4b440fe9a6aee712bd6a14a61a951b4a2d329",
+      "public_file_url": "https://github.com/beaverbeard/redkollegiya/blob/fca4b440fe9a6aee712bd6a14a61a951b4a2d329/.claude/skills/redkollegiya/agents/openai.yaml",
+      "safe_snapshot_sha256": "bfecbf2bc4229a48e1ef28b9a6c4e5db2660b74a5c1280e16392722a1c771364",
+      "sha256": "bfecbf2bc4229a48e1ef28b9a6c4e5db2660b74a5c1280e16392722a1c771364"
+    },
+    {
+      "skill": "redkollegiya",
+      "package_path": "redkollegiya/apply.py",
+      "source": "branding/publication/2026-11-25/repos/redkollegiya/.claude/skills/redkollegiya/apply.py",
+      "public_commit": "fca4b440fe9a6aee712bd6a14a61a951b4a2d329",
+      "public_file_url": "https://github.com/beaverbeard/redkollegiya/blob/fca4b440fe9a6aee712bd6a14a61a951b4a2d329/.claude/skills/redkollegiya/apply.py",
+      "safe_snapshot_sha256": "d08261e9adae01afcf05a45fc55ed3658bfdc89a335b4a3348df94e4c7c22762",
+      "sha256": "d08261e9adae01afcf05a45fc55ed3658bfdc89a335b4a3348df94e4c7c22762"
+    },
+    {
+      "skill": "redkollegiya",
+      "package_path": "redkollegiya/assets/brand/icon-redkollegiya.png",
+      "source": "branding/publication/2026-11-25/repos/redkollegiya/.claude/skills/redkollegiya/assets/brand/icon-redkollegiya.png",
+      "public_commit": "fca4b440fe9a6aee712bd6a14a61a951b4a2d329",
+      "public_file_url": "https://github.com/beaverbeard/redkollegiya/blob/fca4b440fe9a6aee712bd6a14a61a951b4a2d329/.claude/skills/redkollegiya/assets/brand/icon-redkollegiya.png",
+      "safe_snapshot_sha256": "3d10f2b8bd4cc3c1f7f329fd6ae76ee083f53c162a578c899cb8321522fe1fe7",
+      "sha256": "3d10f2b8bd4cc3c1f7f329fd6ae76ee083f53c162a578c899cb8321522fe1fe7"
+    },
+    {
+      "skill": "redkollegiya",
+      "package_path": "redkollegiya/assets/brand/icon-redkollegiya.svg",
+      "source": "branding/publication/2026-11-25/repos/redkollegiya/.claude/skills/redkollegiya/assets/brand/icon-redkollegiya.svg",
+      "public_commit": "fca4b440fe9a6aee712bd6a14a61a951b4a2d329",
+      "public_file_url": "https://github.com/beaverbeard/redkollegiya/blob/fca4b440fe9a6aee712bd6a14a61a951b4a2d329/.claude/skills/redkollegiya/assets/brand/icon-redkollegiya.svg",
+      "safe_snapshot_sha256": "1a90fb7fd83a5498214d21fb38624d421f913c1f789cb1d3c0c60a321ab14930",
+      "sha256": "1a90fb7fd83a5498214d21fb38624d421f913c1f789cb1d3c0c60a321ab14930"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/SKILL.md",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/SKILL.md",
+      "safe_snapshot_sha256": "77cc1efa325506c94434ece3bc2d260be680537641afd5b193326900ab2c4bdc",
+      "sha256": "77cc1efa325506c94434ece3bc2d260be680537641afd5b193326900ab2c4bdc"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/agents/openai.yaml",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/agents/openai.yaml",
+      "safe_snapshot_sha256": "e23e97068a88d210b86abcd7c4865ee402abe93ab727d9f0d4a0c82bd83c658e",
+      "sha256": "e23e97068a88d210b86abcd7c4865ee402abe93ab727d9f0d4a0c82bd83c658e"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/assets/brand/icon-vinogradov.png",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/assets/brand/icon-vinogradov.png",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/assets/brand/icon-vinogradov.png",
+      "safe_snapshot_sha256": "18ed1d15ddd3c5d7c3be4f03b4612a6e6abb7560b217e42473687a776ea35ceb",
+      "sha256": "18ed1d15ddd3c5d7c3be4f03b4612a6e6abb7560b217e42473687a776ea35ceb"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/assets/brand/icon-vinogradov.svg",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/assets/brand/icon-vinogradov.svg",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/assets/brand/icon-vinogradov.svg",
+      "safe_snapshot_sha256": "4b53c02f4a2bd1686d722964376cb7728984138b4e6d2ceb24e5d9334f0df5a7",
+      "sha256": "4b53c02f4a2bd1686d722964376cb7728984138b4e6d2ceb24e5d9334f0df5a7"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/assets/brand/logo-vinogradov.png",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/assets/brand/logo-vinogradov.png",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/assets/brand/logo-vinogradov.png",
+      "safe_snapshot_sha256": "8d34691ed14b0ec9ffe1fc86b2b306550b04579789aa0807149bbed36e1fdf61",
+      "sha256": "8d34691ed14b0ec9ffe1fc86b2b306550b04579789aa0807149bbed36e1fdf61"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/assets/brand/logo-vinogradov.svg",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/assets/brand/logo-vinogradov.svg",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/assets/brand/logo-vinogradov.svg",
+      "safe_snapshot_sha256": "339853e15040d6cae22a2b5f68837331208be4c98f5d8cd385557197fe334a91",
+      "sha256": "339853e15040d6cae22a2b5f68837331208be4c98f5d8cd385557197fe334a91"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/references/extraction-guide.md",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/references/extraction-guide.md",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/references/extraction-guide.md",
+      "safe_snapshot_sha256": "da95a71c8175d90e70885b7727ebb7ed69ab2f79918cc342735d3ad18f634ceb",
+      "sha256": "da95a71c8175d90e70885b7727ebb7ed69ab2f79918cc342735d3ad18f634ceb"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/references/neutral-base.example.md",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/references/neutral-base.example.md",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/references/neutral-base.example.md",
+      "safe_snapshot_sha256": "863929d4b96d13e8c3eeb7bf029ff6178a2ff48e8f60699f04d324e0e6d04c74",
+      "sha256": "863929d4b96d13e8c3eeb7bf029ff6178a2ff48e8f60699f04d324e0e6d04c74"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/references/neutral-base.md",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/references/neutral-base.md",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/references/neutral-base.md",
+      "safe_snapshot_sha256": "aa26bc30043e9a2d32ef67b48956312cf51b3eabcb53b9039736588e4eaab67b",
+      "sha256": "aa26bc30043e9a2d32ef67b48956312cf51b3eabcb53b9039736588e4eaab67b"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/references/neutral-base.sources.json",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/references/neutral-base.sources.json",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/references/neutral-base.sources.json",
+      "safe_snapshot_sha256": "f6b05767ebba5730ca86c6e30a7a8016926ea6c05b585ee5bee93a7acd23a5a2",
+      "sha256": "f6b05767ebba5730ca86c6e30a7a8016926ea6c05b585ee5bee93a7acd23a5a2"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/references/universal-anti-slop.md",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/references/universal-anti-slop.md",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/references/universal-anti-slop.md",
+      "safe_snapshot_sha256": "fb431e10ce9857ba66bcc88d46950a857dacc2f8c0cc75d506773ee191f8411a",
+      "sha256": "fb431e10ce9857ba66bcc88d46950a857dacc2f8c0cc75d506773ee191f8411a"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/references/voice-skill-template.md",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/references/voice-skill-template.md",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/references/voice-skill-template.md",
+      "safe_snapshot_sha256": "33db7c3d6fa12331d778a7705c810621d018289e9c9dbf210b23028287eb7ead",
+      "sha256": "33db7c3d6fa12331d778a7705c810621d018289e9c9dbf210b23028287eb7ead"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/scripts/analyze_corpus.py",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/scripts/analyze_corpus.py",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/scripts/analyze_corpus.py",
+      "safe_snapshot_sha256": "bb762e614e8f62a18565fec759f2c4898d2503992515c475449659a141fa0e3e",
+      "sha256": "bb762e614e8f62a18565fec759f2c4898d2503992515c475449659a141fa0e3e"
+    },
+    {
+      "skill": "vinogradov",
+      "package_path": "vinogradov/scripts/extract_telegram.py",
+      "source": "branding/publication/2026-11-25/repos/vinogradov/scripts/extract_telegram.py",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "public_file_url": "https://github.com/beaverbeard/vinogradov/blob/ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd/scripts/extract_telegram.py",
+      "safe_snapshot_sha256": "08b2f3afcc80e61cf9b3d3df9cd800acec1fd6d28239ff6087bc95f2eca62a8f",
+      "sha256": "08b2f3afcc80e61cf9b3d3df9cd800acec1fd6d28239ff6087bc95f2eca62a8f"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/SKILL.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/SKILL.md",
+      "safe_snapshot_sha256": "d3e99db9c39e8a40128ce9c6757377d7a5de01a137a8ab88d70ecc93ce5ef4c8",
+      "sha256": "d3e99db9c39e8a40128ce9c6757377d7a5de01a137a8ab88d70ecc93ce5ef4c8"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/agents/openai.yaml",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/agents/openai.yaml",
+      "safe_snapshot_sha256": "8e298fa7df9eaa70282647389129038148d3ccb13b0ffd9319a67d8952fc4bf1",
+      "sha256": "8e298fa7df9eaa70282647389129038148d3ccb13b0ffd9319a67d8952fc4bf1"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/assets/brand/icon-bakhtin.png",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/assets/brand/icon-bakhtin.png",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/assets/brand/icon-bakhtin.png",
+      "safe_snapshot_sha256": "8f7305c5484dd1abcde5c5db61c4e02e1458f694e15a247663f45b5edcc65ee8",
+      "sha256": "8f7305c5484dd1abcde5c5db61c4e02e1458f694e15a247663f45b5edcc65ee8"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/assets/brand/icon-bakhtin.svg",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/assets/brand/icon-bakhtin.svg",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/assets/brand/icon-bakhtin.svg",
+      "safe_snapshot_sha256": "2564bfd1fdb4903f00ed647bc12bc2f6a8a060ff81965306de1bba9267181d21",
+      "sha256": "2564bfd1fdb4903f00ed647bc12bc2f6a8a060ff81965306de1bba9267181d21"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/directions/doc.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/directions/doc.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/directions/doc.md",
+      "safe_snapshot_sha256": "4510e1fb42fff8079ff3c0d7c47158c242450e4b55f40132295e095adb4c8a96",
+      "sha256": "4510e1fb42fff8079ff3c0d7c47158c242450e4b55f40132295e095adb4c8a96"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/directions/essay.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/directions/essay.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/directions/essay.md",
+      "safe_snapshot_sha256": "8dcfb661035b099797855772639c586a7218fd8197447b3f6828364f7496a301",
+      "sha256": "8dcfb661035b099797855772639c586a7218fd8197447b3f6828364f7496a301"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/directions/letter.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/directions/letter.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/directions/letter.md",
+      "safe_snapshot_sha256": "c7959f17f0e29dd90c773eccde7ac79fd38031d34a7b5bf7028df39d94e6dc60",
+      "sha256": "c7959f17f0e29dd90c773eccde7ac79fd38031d34a7b5bf7028df39d94e6dc60"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/directions/longread.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/directions/longread.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/directions/longread.md",
+      "safe_snapshot_sha256": "d83b3ab5c415e58b93eace1cf063362a54d9bae522c0d00c930109f43af6d349",
+      "sha256": "d83b3ab5c415e58b93eace1cf063362a54d9bae522c0d00c930109f43af6d349"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/directions/tg-post.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/directions/tg-post.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/directions/tg-post.md",
+      "safe_snapshot_sha256": "565d34767df3b5d74b9a6892fa76f3644fc978cf504bbeeb6d3174c5845e96d4",
+      "sha256": "565d34767df3b5d74b9a6892fa76f3644fc978cf504bbeeb6d3174c5845e96d4"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/directions/theses.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/directions/theses.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/directions/theses.md",
+      "safe_snapshot_sha256": "fe39a44907de3eee021bf042151f065c51df8a382aaba23f595e46981d993f05",
+      "sha256": "fe39a44907de3eee021bf042151f065c51df8a382aaba23f595e46981d993f05"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/scripts/voice_packet.py",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/scripts/voice_packet.py",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/scripts/voice_packet.py",
+      "safe_snapshot_sha256": "99c96b245dd4b32380e7d6f2c704d98abc2869b85b4ec04520ad2724a20d4bc6",
+      "sha256": "99c96b245dd4b32380e7d6f2c704d98abc2869b85b4ec04520ad2724a20d4bc6"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/voice/_template.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/voice/_template.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/voice/_template.md",
+      "safe_snapshot_sha256": "63006e4bbf6a9bb4e03598621167f07cfab2185e857bb616c5e549f1b64db5ec",
+      "sha256": "63006e4bbf6a9bb4e03598621167f07cfab2185e857bb616c5e549f1b64db5ec"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/voice/neutral-base.example.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/voice/neutral-base.example.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/voice/neutral-base.example.md",
+      "safe_snapshot_sha256": "863929d4b96d13e8c3eeb7bf029ff6178a2ff48e8f60699f04d324e0e6d04c74",
+      "sha256": "863929d4b96d13e8c3eeb7bf029ff6178a2ff48e8f60699f04d324e0e6d04c74"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/voice/neutral-base.md",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/voice/neutral-base.md",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/voice/neutral-base.md",
+      "safe_snapshot_sha256": "aa26bc30043e9a2d32ef67b48956312cf51b3eabcb53b9039736588e4eaab67b",
+      "sha256": "aa26bc30043e9a2d32ef67b48956312cf51b3eabcb53b9039736588e4eaab67b"
+    },
+    {
+      "skill": "bakhtin",
+      "package_path": "bakhtin/voice/neutral-base.sources.json",
+      "source": "branding/publication/2026-11-25/repos/bakhtin/.claude/skills/bakhtin/voice/neutral-base.sources.json",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "public_file_url": "https://github.com/beaverbeard/bakhtin/blob/f966bd1ff0e632755141d989a30ff0dc9d662474/.claude/skills/bakhtin/voice/neutral-base.sources.json",
+      "safe_snapshot_sha256": "f6b05767ebba5730ca86c6e30a7a8016926ea6c05b585ee5bee93a7acd23a5a2",
+      "sha256": "f6b05767ebba5730ca86c6e30a7a8016926ea6c05b585ee5bee93a7acd23a5a2"
+    },
+    {
+      "skill": "chukovsky",
+      "package_path": "chukovsky/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/chukovsky/.claude/skills/chukovsky/SKILL.md",
+      "public_commit": "b71639152a9482f8c6c0e9718f9db17d933d95a7",
+      "public_file_url": "https://github.com/beaverbeard/chukovsky/blob/b71639152a9482f8c6c0e9718f9db17d933d95a7/.claude/skills/chukovsky/SKILL.md",
+      "safe_snapshot_sha256": "9b0c254710e146e89a460fa6b2e3121ba4be8604e9c26456531dce37513aecf7",
+      "sha256": "9b0c254710e146e89a460fa6b2e3121ba4be8604e9c26456531dce37513aecf7"
+    },
+    {
+      "skill": "chukovsky",
+      "package_path": "chukovsky/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/chukovsky/.claude/skills/chukovsky/agents/openai.yaml",
+      "public_commit": "b71639152a9482f8c6c0e9718f9db17d933d95a7",
+      "public_file_url": "https://github.com/beaverbeard/chukovsky/blob/b71639152a9482f8c6c0e9718f9db17d933d95a7/.claude/skills/chukovsky/agents/openai.yaml",
+      "safe_snapshot_sha256": "b2a92dde10ba01483e5edca80c5ab4c53aec48447201456ea956f5a9774fbc45",
+      "sha256": "b2a92dde10ba01483e5edca80c5ab4c53aec48447201456ea956f5a9774fbc45"
+    },
+    {
+      "skill": "chukovsky",
+      "package_path": "chukovsky/assets/brand/icon-chukovsky.png",
+      "source": "branding/publication/2026-11-25/repos/chukovsky/.claude/skills/chukovsky/assets/brand/icon-chukovsky.png",
+      "public_commit": "b71639152a9482f8c6c0e9718f9db17d933d95a7",
+      "public_file_url": "https://github.com/beaverbeard/chukovsky/blob/b71639152a9482f8c6c0e9718f9db17d933d95a7/.claude/skills/chukovsky/assets/brand/icon-chukovsky.png",
+      "safe_snapshot_sha256": "1bb27895b7d8357f3887a822301a49d65c8e873c8091e20f190980ce8806924f",
+      "sha256": "1bb27895b7d8357f3887a822301a49d65c8e873c8091e20f190980ce8806924f"
+    },
+    {
+      "skill": "chukovsky",
+      "package_path": "chukovsky/assets/brand/icon-chukovsky.svg",
+      "source": "branding/publication/2026-11-25/repos/chukovsky/.claude/skills/chukovsky/assets/brand/icon-chukovsky.svg",
+      "public_commit": "b71639152a9482f8c6c0e9718f9db17d933d95a7",
+      "public_file_url": "https://github.com/beaverbeard/chukovsky/blob/b71639152a9482f8c6c0e9718f9db17d933d95a7/.claude/skills/chukovsky/assets/brand/icon-chukovsky.svg",
+      "safe_snapshot_sha256": "4ae2e0ab1947a98473faa0bb33267b649576bf7708dde17e5285c984af3fac21",
+      "sha256": "4ae2e0ab1947a98473faa0bb33267b649576bf7708dde17e5285c984af3fac21"
+    },
+    {
+      "skill": "agranovsky",
+      "package_path": "agranovsky/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/agranovsky/.claude/skills/agranovsky/SKILL.md",
+      "public_commit": "82113074cae5fa766dc0684dbbb6a30b842a96e3",
+      "public_file_url": "https://github.com/beaverbeard/agranovsky/blob/82113074cae5fa766dc0684dbbb6a30b842a96e3/.claude/skills/agranovsky/SKILL.md",
+      "safe_snapshot_sha256": "1e9076bb996884eb8717862d0b6e72a38457d0a801b87f680ff649b8960e2c3f",
+      "sha256": "1e9076bb996884eb8717862d0b6e72a38457d0a801b87f680ff649b8960e2c3f"
+    },
+    {
+      "skill": "agranovsky",
+      "package_path": "agranovsky/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/agranovsky/.claude/skills/agranovsky/agents/openai.yaml",
+      "public_commit": "82113074cae5fa766dc0684dbbb6a30b842a96e3",
+      "public_file_url": "https://github.com/beaverbeard/agranovsky/blob/82113074cae5fa766dc0684dbbb6a30b842a96e3/.claude/skills/agranovsky/agents/openai.yaml",
+      "safe_snapshot_sha256": "542eeeff18e5d42df63ee197cd5adea4ff57ed34c13a0c0d7a4779b2e6d24f6a",
+      "sha256": "542eeeff18e5d42df63ee197cd5adea4ff57ed34c13a0c0d7a4779b2e6d24f6a"
+    },
+    {
+      "skill": "agranovsky",
+      "package_path": "agranovsky/assets/brand/icon-agranovsky.png",
+      "source": "branding/publication/2026-11-25/repos/agranovsky/.claude/skills/agranovsky/assets/brand/icon-agranovsky.png",
+      "public_commit": "82113074cae5fa766dc0684dbbb6a30b842a96e3",
+      "public_file_url": "https://github.com/beaverbeard/agranovsky/blob/82113074cae5fa766dc0684dbbb6a30b842a96e3/.claude/skills/agranovsky/assets/brand/icon-agranovsky.png",
+      "safe_snapshot_sha256": "b8b736b369d3191c59edf0c442283ffe3179bfbf378f8bf8ad24c8a0a6b0bb2c",
+      "sha256": "b8b736b369d3191c59edf0c442283ffe3179bfbf378f8bf8ad24c8a0a6b0bb2c"
+    },
+    {
+      "skill": "agranovsky",
+      "package_path": "agranovsky/assets/brand/icon-agranovsky.svg",
+      "source": "branding/publication/2026-11-25/repos/agranovsky/.claude/skills/agranovsky/assets/brand/icon-agranovsky.svg",
+      "public_commit": "82113074cae5fa766dc0684dbbb6a30b842a96e3",
+      "public_file_url": "https://github.com/beaverbeard/agranovsky/blob/82113074cae5fa766dc0684dbbb6a30b842a96e3/.claude/skills/agranovsky/assets/brand/icon-agranovsky.svg",
+      "safe_snapshot_sha256": "ea50b842083b9583a117e449da3d00b2b30249b1d4b111439dd03b4d28590184",
+      "sha256": "ea50b842083b9583a117e449da3d00b2b30249b1d4b111439dd03b4d28590184"
+    },
+    {
+      "skill": "slopotron",
+      "package_path": "slopotron/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/slopotron/.claude/skills/slopotron/SKILL.md",
+      "public_commit": "f29df86f0868d787cefa2ee2f9781d0ef635aa0c",
+      "public_file_url": "https://github.com/beaverbeard/slopotron/blob/f29df86f0868d787cefa2ee2f9781d0ef635aa0c/.claude/skills/slopotron/SKILL.md",
+      "safe_snapshot_sha256": "d693f385cbd9e9a2636850dd8d93e39216d7b3b50d3b6d80457d1fe91e961fcc",
+      "sha256": "d693f385cbd9e9a2636850dd8d93e39216d7b3b50d3b6d80457d1fe91e961fcc"
+    },
+    {
+      "skill": "slopotron",
+      "package_path": "slopotron/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/slopotron/.claude/skills/slopotron/agents/openai.yaml",
+      "public_commit": "f29df86f0868d787cefa2ee2f9781d0ef635aa0c",
+      "public_file_url": "https://github.com/beaverbeard/slopotron/blob/f29df86f0868d787cefa2ee2f9781d0ef635aa0c/.claude/skills/slopotron/agents/openai.yaml",
+      "safe_snapshot_sha256": "90fb1f8561eaf942ccbc24919c3ac9c5ab3dff4d576cdad839cf7ab1f0eb523c",
+      "sha256": "90fb1f8561eaf942ccbc24919c3ac9c5ab3dff4d576cdad839cf7ab1f0eb523c"
+    },
+    {
+      "skill": "slopotron",
+      "package_path": "slopotron/assets/brand/icon-slopotron.png",
+      "source": "branding/publication/2026-11-25/repos/slopotron/.claude/skills/slopotron/assets/brand/icon-slopotron.png",
+      "public_commit": "f29df86f0868d787cefa2ee2f9781d0ef635aa0c",
+      "public_file_url": "https://github.com/beaverbeard/slopotron/blob/f29df86f0868d787cefa2ee2f9781d0ef635aa0c/.claude/skills/slopotron/assets/brand/icon-slopotron.png",
+      "safe_snapshot_sha256": "242e0b692f78c9764c00fae213a4020712643cdc1b57f791b30b1223dec6ec2a",
+      "sha256": "242e0b692f78c9764c00fae213a4020712643cdc1b57f791b30b1223dec6ec2a"
+    },
+    {
+      "skill": "slopotron",
+      "package_path": "slopotron/assets/brand/icon-slopotron.svg",
+      "source": "branding/publication/2026-11-25/repos/slopotron/.claude/skills/slopotron/assets/brand/icon-slopotron.svg",
+      "public_commit": "f29df86f0868d787cefa2ee2f9781d0ef635aa0c",
+      "public_file_url": "https://github.com/beaverbeard/slopotron/blob/f29df86f0868d787cefa2ee2f9781d0ef635aa0c/.claude/skills/slopotron/assets/brand/icon-slopotron.svg",
+      "safe_snapshot_sha256": "3ccea1a868dcd6aa569890954df395fa5c828a75957497358d3dfea5d623dcf5",
+      "sha256": "3ccea1a868dcd6aa569890954df395fa5c828a75957497358d3dfea5d623dcf5"
+    },
+    {
+      "skill": "rozental",
+      "package_path": "rozental/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/rozental/.claude/skills/rozental/SKILL.md",
+      "public_commit": "cfb2ad330cd618e3706be3d26dd12e94ed8c201e",
+      "public_file_url": "https://github.com/beaverbeard/rozental/blob/cfb2ad330cd618e3706be3d26dd12e94ed8c201e/.claude/skills/rozental/SKILL.md",
+      "safe_snapshot_sha256": "a3c2627609ea3e407bcf54b4a9df455e2b594fb94c313bb11eb2a9528ad54b1f",
+      "sha256": "a3c2627609ea3e407bcf54b4a9df455e2b594fb94c313bb11eb2a9528ad54b1f"
+    },
+    {
+      "skill": "rozental",
+      "package_path": "rozental/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/rozental/.claude/skills/rozental/agents/openai.yaml",
+      "public_commit": "cfb2ad330cd618e3706be3d26dd12e94ed8c201e",
+      "public_file_url": "https://github.com/beaverbeard/rozental/blob/cfb2ad330cd618e3706be3d26dd12e94ed8c201e/.claude/skills/rozental/agents/openai.yaml",
+      "safe_snapshot_sha256": "9c9b02ad103477e845df66f961656db5acdc4536d2470a9ed08d79b1097de9f1",
+      "sha256": "9c9b02ad103477e845df66f961656db5acdc4536d2470a9ed08d79b1097de9f1"
+    },
+    {
+      "skill": "rozental",
+      "package_path": "rozental/assets/brand/icon-rozental.png",
+      "source": "branding/publication/2026-11-25/repos/rozental/.claude/skills/rozental/assets/brand/icon-rozental.png",
+      "public_commit": "cfb2ad330cd618e3706be3d26dd12e94ed8c201e",
+      "public_file_url": "https://github.com/beaverbeard/rozental/blob/cfb2ad330cd618e3706be3d26dd12e94ed8c201e/.claude/skills/rozental/assets/brand/icon-rozental.png",
+      "safe_snapshot_sha256": "5490093483340b56d8a68ee028b6ab8708b6169013b2840fd1ed6cbb7dc5bfe7",
+      "sha256": "5490093483340b56d8a68ee028b6ab8708b6169013b2840fd1ed6cbb7dc5bfe7"
+    },
+    {
+      "skill": "rozental",
+      "package_path": "rozental/assets/brand/icon-rozental.svg",
+      "source": "branding/publication/2026-11-25/repos/rozental/.claude/skills/rozental/assets/brand/icon-rozental.svg",
+      "public_commit": "cfb2ad330cd618e3706be3d26dd12e94ed8c201e",
+      "public_file_url": "https://github.com/beaverbeard/rozental/blob/cfb2ad330cd618e3706be3d26dd12e94ed8c201e/.claude/skills/rozental/assets/brand/icon-rozental.svg",
+      "safe_snapshot_sha256": "69f352af515edc4e6a3afb87a086377b2a0cc06482085499f85b328ea33df03b",
+      "sha256": "69f352af515edc4e6a3afb87a086377b2a0cc06482085499f85b328ea33df03b"
+    },
+    {
+      "skill": "milchin",
+      "package_path": "milchin/SKILL.md",
+      "source": "branding/publication/2026-11-25/repos/milchin/.claude/skills/milchin/SKILL.md",
+      "public_commit": "81e378aa75473780eb7696e2fb441e788fe6d2e2",
+      "public_file_url": "https://github.com/beaverbeard/milchin/blob/81e378aa75473780eb7696e2fb441e788fe6d2e2/.claude/skills/milchin/SKILL.md",
+      "safe_snapshot_sha256": "5e949095403407088ab75d55f330e63c57a3d67e969cc089e2dd5062a7cabcdb",
+      "sha256": "5e949095403407088ab75d55f330e63c57a3d67e969cc089e2dd5062a7cabcdb"
+    },
+    {
+      "skill": "milchin",
+      "package_path": "milchin/agents/openai.yaml",
+      "source": "branding/publication/2026-11-25/repos/milchin/.claude/skills/milchin/agents/openai.yaml",
+      "public_commit": "81e378aa75473780eb7696e2fb441e788fe6d2e2",
+      "public_file_url": "https://github.com/beaverbeard/milchin/blob/81e378aa75473780eb7696e2fb441e788fe6d2e2/.claude/skills/milchin/agents/openai.yaml",
+      "safe_snapshot_sha256": "e010d15848a1740f9e3db058ef2c54e12f38c99e5245b97f4815390b631dc151",
+      "sha256": "e010d15848a1740f9e3db058ef2c54e12f38c99e5245b97f4815390b631dc151"
+    },
+    {
+      "skill": "milchin",
+      "package_path": "milchin/assets/brand/icon-milchin.png",
+      "source": "branding/publication/2026-11-25/repos/milchin/.claude/skills/milchin/assets/brand/icon-milchin.png",
+      "public_commit": "81e378aa75473780eb7696e2fb441e788fe6d2e2",
+      "public_file_url": "https://github.com/beaverbeard/milchin/blob/81e378aa75473780eb7696e2fb441e788fe6d2e2/.claude/skills/milchin/assets/brand/icon-milchin.png",
+      "safe_snapshot_sha256": "69a5d58a7d198a1d827acad9953eb5b3754b31d3ec25eca2d1b022abc6b634d7",
+      "sha256": "69a5d58a7d198a1d827acad9953eb5b3754b31d3ec25eca2d1b022abc6b634d7"
+    },
+    {
+      "skill": "milchin",
+      "package_path": "milchin/assets/brand/icon-milchin.svg",
+      "source": "branding/publication/2026-11-25/repos/milchin/.claude/skills/milchin/assets/brand/icon-milchin.svg",
+      "public_commit": "81e378aa75473780eb7696e2fb441e788fe6d2e2",
+      "public_file_url": "https://github.com/beaverbeard/milchin/blob/81e378aa75473780eb7696e2fb441e788fe6d2e2/.claude/skills/milchin/assets/brand/icon-milchin.svg",
+      "safe_snapshot_sha256": "c8e277397e93f5ae9277fc807dd51f250587adcad2dd5209b09f3e58fa3da1b8",
+      "sha256": "c8e277397e93f5ae9277fc807dd51f250587adcad2dd5209b09f3e58fa3da1b8"
+    },
+    {
+      "skill": "milchin",
+      "package_path": "milchin/milchin.py",
+      "source": "branding/publication/2026-11-25/repos/milchin/.claude/skills/milchin/milchin.py",
+      "public_commit": "81e378aa75473780eb7696e2fb441e788fe6d2e2",
+      "public_file_url": "https://github.com/beaverbeard/milchin/blob/81e378aa75473780eb7696e2fb441e788fe6d2e2/.claude/skills/milchin/milchin.py",
+      "safe_snapshot_sha256": "44b014faf23cf8c77b18d57531f2d4947a5349c5ffdd1fd1542c41f13cab951b",
+      "sha256": "44b014faf23cf8c77b18d57531f2d4947a5349c5ffdd1fd1542c41f13cab951b"
+    }
+  ],
+  "skills": [
+    {
+      "slug": "redkollegiya",
+      "url": "https://github.com/beaverbeard/redkollegiya",
+      "public_commit": "fca4b440fe9a6aee712bd6a14a61a951b4a2d329",
+      "archive": "redkollegiya.zip",
+      "sha256": "6b59adf6a747ea3cee1c93afeae24f1dc8b33a72ce39344ad74b6e71192f8d97"
+    },
+    {
+      "slug": "vinogradov",
+      "url": "https://github.com/beaverbeard/vinogradov",
+      "public_commit": "ea9b87925e59c69425d9a1cb911f0d3c57e6e6cd",
+      "archive": "vinogradov.zip",
+      "sha256": "0226fb78ebb82d24cec3e1dfba803db216b01805de201acccdb6d96ea2e4d2b3"
+    },
+    {
+      "slug": "bakhtin",
+      "url": "https://github.com/beaverbeard/bakhtin",
+      "public_commit": "f966bd1ff0e632755141d989a30ff0dc9d662474",
+      "archive": "bakhtin.zip",
+      "sha256": "b2813851fa3bbb7515a7ee5c82a2c09038731e3c599590107f65d7d0bf77d567"
+    },
+    {
+      "slug": "chukovsky",
+      "url": "https://github.com/beaverbeard/chukovsky",
+      "public_commit": "b71639152a9482f8c6c0e9718f9db17d933d95a7",
+      "archive": "chukovsky.zip",
+      "sha256": "532a4075436a0be5597aed9b6c9ca6c21d4da74c5737ea93207c390c0294ffed"
+    },
+    {
+      "slug": "agranovsky",
+      "url": "https://github.com/beaverbeard/agranovsky",
+      "public_commit": "82113074cae5fa766dc0684dbbb6a30b842a96e3",
+      "archive": "agranovsky.zip",
+      "sha256": "0031d3732bb93215930d711d7c33bc557fc4c6bc4f122f805491a156885d6d1a"
+    },
+    {
+      "slug": "slopotron",
+      "url": "https://github.com/beaverbeard/slopotron",
+      "public_commit": "f29df86f0868d787cefa2ee2f9781d0ef635aa0c",
+      "archive": "slopotron.zip",
+      "sha256": "b17439f4e618854bf2a760f307d0045dcb2ab5298689cb745a914109849e65be"
+    },
+    {
+      "slug": "rozental",
+      "url": "https://github.com/beaverbeard/rozental",
+      "public_commit": "cfb2ad330cd618e3706be3d26dd12e94ed8c201e",
+      "archive": "rozental.zip",
+      "sha256": "488d3a3d3a89219d6682ffd327d6a5c140f3356df77265d3f59b72ff7d02ff0e"
+    },
+    {
+      "slug": "milchin",
+      "url": "https://github.com/beaverbeard/milchin",
+      "public_commit": "81e378aa75473780eb7696e2fb441e788fe6d2e2",
+      "archive": "milchin.zip",
+      "sha256": "fd8f9502a30ca9921799ef010292b6ea5b0530da833a96a264d5caeec2354ef0"
+    }
+  ]
+}
